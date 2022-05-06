@@ -18,7 +18,7 @@ class AuthController extends Controller
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
    
-            return redirect()->intended('dashboard');
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([
@@ -39,7 +39,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->intended('dashboard');
+        return redirect()->intended('/');
     }
 
     public function logout(Request $request)
@@ -50,6 +50,6 @@ class AuthController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect('/');
+        return redirect('login');
     }
 }
