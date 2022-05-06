@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Models\Account;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,11 @@ class AuthController extends Controller
         $data = $request->validated();
 
         $user = User::create($data);
+
+        Account::create([
+            'user_id' => $user->id,
+            'balance' => 0,
+        ]);
 
         Auth::login($user);
 
