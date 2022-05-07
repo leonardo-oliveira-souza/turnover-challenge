@@ -57,24 +57,7 @@
         </div>
         <div class="block mt-4">
             <h1 class="block ml-4 text-blue-400 text-xl">Transactions</h1>
-            <table class="w-full mt-2">
-                <tbody>
-                    <tr v-for="transaction in transactions" v-bind:key="transaction.id" class="mx-4 flex justify-between items-center border-b border-b-slate-200 pb-2">
-                        <td>
-                            <span class="text-blue-400">
-                                {{ transaction.description }}
-                            </span>
-                            <br>
-                            <span class="text-blue-300">
-                                {{ transaction.datetime }}
-                            </span>
-                        </td>
-                        <td v-bind:class="transaction.type === 1 ? 'text-blue-400' : 'text-red-400'">
-                            {{ transaction.amount }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <transaction-list :transactions="transactions"></transaction-list>
         </div>
     </div>
 </template>

@@ -5,7 +5,7 @@
     <div class="bg-blue-100 h-32">
         <div class="flex">
             <span class="text-blue-400 text-center w-full text-2xl mt-8">
-                BNB Bank
+                PURCHASE
             </span>
         </div>
         <div class="flex mx-4 justify-between">

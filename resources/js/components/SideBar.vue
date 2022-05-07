@@ -41,7 +41,7 @@
                         <a>INCOMES</a>
                     </li>
                     <li v-if="! admin" class="ml-8 p-2">
-                        <a>EXPENSES</a>
+                        <a href="expenses">EXPENSES</a>
                     </li>
                     <li v-if="! admin" class="ml-8 p-2">
                         <a>CHECKS</a>

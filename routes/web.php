@@ -38,4 +38,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('balance', [BalanceController::class, 'index']);
+
+    Route::get('expenses', [TransactionController::class, 'expenses'])->name('expenses.index');
+
+    Route::get('transactions/search', [TransactionController::class, 'search']);
 });

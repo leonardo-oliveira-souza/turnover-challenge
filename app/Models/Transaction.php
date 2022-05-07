@@ -13,4 +13,8 @@ class Transaction extends Model
         'amount',
         'datetime',
     ];
+
+    protected $casts = [
+        'datetime' => 'datetime',
+    ];
 }

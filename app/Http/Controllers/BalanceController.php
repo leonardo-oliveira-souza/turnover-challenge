@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\TransactionType;
+use App\Http\Resources\Transaction as TransactionResource;
 use App\Models\Account;
 use App\Models\Transaction;
 use Carbon\Carbon;
@@ -42,7 +43,7 @@ class BalanceController extends Controller
 
         return response()->json([
             'current_balance' => number_format($account->balance, 2),
-            'transactions' => $transactions,
+            'transactions' => TransactionResource::collection($transactions),
             'total_incomes' => number_format($totalIncomes, 2),
             'total_expenses' => number_format($totalExpenses, 2),
         ]);
