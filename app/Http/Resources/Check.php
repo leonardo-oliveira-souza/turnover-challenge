@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Transaction extends JsonResource
+class Check extends JsonResource
 {
     public function toArray($request)
     {
@@ -12,9 +12,10 @@ class Transaction extends JsonResource
             'id' => $this->id,
             'account_id' => $this->account_id,
             'description' => $this->description,
-            'type' => $this->type,
             'amount' => number_format($this->amount, 2),
-            'datetime' => $this->datetime->format('m/d/Y, H:i:s'),
+            'status' => $this->status,
+            'image_path' => $this->image_path,
+            'datetime' => $this->created_at->format('m/d/Y, H:i:s'),
         ];
     }
 }

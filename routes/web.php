@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BalanceController;
+use App\Http\Controllers\CheckController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
@@ -44,4 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::get('incomes', [TransactionController::class, 'incomes'])->name('incomes.index');
 
     Route::get('transactions/search', [TransactionController::class, 'search']);
+
+    Route::prefix('checks')->group(function () {
+        Route::get('/', [CheckController::class, 'index'])->name('checks.index');
+        Route::get('/search', [CheckController::class, 'search'])->name('checks.index');
+    });
 });
