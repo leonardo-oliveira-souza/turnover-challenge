@@ -10,7 +10,7 @@ class Transaction extends Model
         'account_id',
         'description',
         'type',
-        'ammount',
+        'amount',
         'datetime',
     ];
 }

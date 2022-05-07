@@ -9,7 +9,7 @@ class Check extends Model
     protected $fillable = [
         'account_id',
         'description',
-        'ammount',
+        'amount',
         'status',
         'image_path',
     ];

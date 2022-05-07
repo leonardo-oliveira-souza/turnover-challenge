@@ -23,9 +23,9 @@
         @csrf
         <div class="flex flex-wrap justify-center">
             <div class="w-full md:w-1/2">
-                <label class="block mb-1 text-blue-300">Ammount</label>
-                <input name="ammount" value="{{ old('ammount') }}" class="w-full h-10 px-3 tex-blue-400 text-base placeholder-blue-400 border rounded-lg focus:outline-none focus:shadow-outline" type="number" min="0" step="0.01" />
-                @error('ammount')
+                <label class="block mb-1 text-blue-300">Amount</label>
+                <input name="amount" value="{{ old('amount') }}" class="w-full h-10 px-3 tex-blue-400 text-base placeholder-blue-400 border rounded-lg focus:outline-none focus:shadow-outline" type="number" min="0" step="0.01" />
+                @error('amount')
                     <span class="text-red-400">
                         {{ $message }}
                     </span>

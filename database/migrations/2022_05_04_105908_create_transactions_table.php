@@ -17,7 +17,7 @@ return new class () extends Migration {
             $table->foreignId('account_id')->constrained();
             $table->string('description', 200);
             $table->unsignedTinyInteger('type');
-            $table->decimal('ammount');
+            $table->decimal('amount');
             $table->timestamp('datetime');
             $table->timestamps();
         });

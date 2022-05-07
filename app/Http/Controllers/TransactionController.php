@@ -26,9 +26,9 @@ class TransactionController extends Controller
 
         $account = Account::where('user_id', auth()->id())->first();
 
-        if ($data['ammount'] > $account->balance) {
+        if ($data['amount'] > $account->balance) {
             return back()->withErrors([
-                'ammount' => 'The ammount value is bigger than current balance'
+                'amount' => 'The amount value is bigger than current balance'
             ])->withInput($data);
         }
 
@@ -37,7 +37,7 @@ class TransactionController extends Controller
 
         Transaction::create($data);
 
-        $newBalance = $account->balance - $data['ammount'];
+        $newBalance = $account->balance - $data['amount'];
         $account->update(['balance' => $newBalance]);
 
         return redirect()->route('purchase.create');

@@ -17,7 +17,7 @@ return new class () extends Migration
             $table->id();
             $table->foreignId('account_id')->constrained();
             $table->string('description', 200);
-            $table->decimal('ammount');
+            $table->decimal('amount');
             $table->unsignedTinyInteger('status');
             $table->string('image_path', 200);
             $table->timestamps();

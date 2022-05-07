@@ -26,7 +26,7 @@ class BalanceController extends Controller
 
         $totalIncomes = $transactions->sum(function ($transaction) {
             if ($transaction->type === TransactionType::INCOMING->value) {
-                return $transaction->ammount;
+                return $transaction->amount;
             }
 
             return 0;
@@ -34,7 +34,7 @@ class BalanceController extends Controller
 
         $totalExpenses = $transactions->sum(function ($transaction) {
             if ($transaction->type === TransactionType::EXPENSE->value) {
-                return $transaction->ammount;
+                return $transaction->amount;
             }
 
             return 0;
