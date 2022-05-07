@@ -41,5 +41,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('expenses', [TransactionController::class, 'expenses'])->name('expenses.index');
 
+    Route::get('incomes', [TransactionController::class, 'incomes'])->name('incomes.index');
+
     Route::get('transactions/search', [TransactionController::class, 'search']);
 });

@@ -38,7 +38,7 @@
                         <a href="/">BALANCE</a>
                     </li>
                     <li v-if="! admin" class="ml-8 p-2">
-                        <a>INCOMES</a>
+                        <a href="incomes">INCOMES</a>
                     </li>
                     <li v-if="! admin" class="ml-8 p-2">
                         <a href="expenses">EXPENSES</a>

@@ -51,6 +51,11 @@ class TransactionController extends Controller
         return view('client.expenses');
     }
 
+    public function incomes()
+    {
+        return view('client.incomes');
+    }
+
     public function search(Request $request)
     {
         $account = Account::where('user_id', auth()->id())->first();
