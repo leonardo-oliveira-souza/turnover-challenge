@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +31,11 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    Route::prefix('purchase')->group(function () {
+        Route::get('/', [TransactionController::class, 'purchase'])->name('purchase.create');
+        Route::post('/', [TransactionController::class, 'storePurchase'])->name('purchase.store');
+    });
+
+    Route::get('balance', [BalanceController::class, 'index']);
 });

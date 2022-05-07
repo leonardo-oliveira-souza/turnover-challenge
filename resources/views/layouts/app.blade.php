@@ -11,6 +11,7 @@
 </head>
 <body>
     <div id="app">
+        <side-bar :admin="{{ auth()->user()->admin ? 1 : 0 }}"></side-bar>
         @yield('content')
     </div>
 </body>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <button v-on:click="toggleShow" class="fixed top-4 left-4 outline-none mobile-menu-button">
-            <svg class="w-6 h-6 text-blue-500"
+            <svg class="w-6 h-6 text-blue-400"
                 fill="none"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -13,8 +13,8 @@
             </svg>
         </button>
 
-        <nav class="fixed top-0 left-0 bg-black/40 h-screen w-screen mobile-menu" :class="show || 'hidden'">
-            <div class="bg-blue-500 h-full w-60">
+        <nav v-on:click.self="toggleShow" class="fixed top-0 left-0 bg-black/40 h-screen w-screen mobile-menu" :class="show || 'hidden'">
+            <div class="bg-blue-400 h-full w-60">
                 <div class="bg-blue-300 h-24 flex justify-around items-center">
                     <button v-on:click="toggleShow" class="outline-none mobile-menu-button">
                         <svg class="w-6 h-6 text-white"
@@ -35,7 +35,7 @@
 
                 <ul class="text-white">
                     <li v-if="! admin" class="ml-8 p-2">
-                        <a>BALANCE</a>
+                        <a href="/">BALANCE</a>
                     </li>
                     <li v-if="! admin" class="ml-8 p-2">
                         <a>INCOMES</a>
