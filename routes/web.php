@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('login')->group(function () {
-    Route::get('/', fn() => view('login'))->name('login');
+    Route::get('/', fn () => view('login'))->name('login');
     Route::post('/', [AuthController::class, 'login']);
 });
 
 Route::prefix('register')->group(function () {
-    Route::get('/', fn() => view('register'))->name('register');
+    Route::get('/', fn () => view('register'))->name('register');
     Route::post('/', [AuthController::class, 'register']);
 });
 
