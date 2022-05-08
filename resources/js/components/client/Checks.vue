@@ -41,9 +41,9 @@
             <check-list v-show="tabActive === 'rejected'" :checks="rejected"></check-list>
         </div>
         <div class="fixed bottom-4 right-4">
-            <button class="bg-blue-400 rounded-full h-12 w-12 text-5xl text-white">
+            <a href="/checks/create" class="bg-blue-400 rounded-full h-12 w-12 px-3 text-5xl text-white">
                 +
-            </button>
+            </a>
         </div>
     </div>
 </template>

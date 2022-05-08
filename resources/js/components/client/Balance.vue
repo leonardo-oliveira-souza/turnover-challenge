@@ -32,11 +32,11 @@
                         ${{ totalIncomes }}
                     </span>
                 </div>
-                <button class="text-center text-blue-400">
+                <a href="/checks/create" class="text-center text-blue-400">
                     <span class="text-3xl">+</span>
                     <br>
                     <span class="text-sm">Deposit a check</span>
-                </button>
+                </a>
             </div>
         </div>
         <div class="flex bg-blue-100 h-20">
@@ -48,7 +48,7 @@
                         ${{ totalExpenses }}
                     </span>
                 </div>
-                <a href="purchase" class="text-center text-blue-400 mr-6">
+                <a href="/purchase" class="text-center text-blue-400 mr-6">
                     <span class="text-3xl">+</span>
                     <br>
                     <span class="text-sm">Purchase</span>

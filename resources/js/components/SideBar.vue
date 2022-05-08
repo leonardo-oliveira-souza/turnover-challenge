@@ -38,17 +38,17 @@
                         <a href="/">BALANCE</a>
                     </li>
                     <li v-if="! admin" class="ml-8 p-2">
-                        <a href="incomes">INCOMES</a>
+                        <a href="/incomes">INCOMES</a>
                     </li>
                     <li v-if="! admin" class="ml-8 p-2">
-                        <a href="expenses">EXPENSES</a>
+                        <a href="/expenses">EXPENSES</a>
                     </li>
                     <li v-if="! admin" class="ml-8 p-2">
-                        <a href="checks">CHECKS</a>
+                        <a href="/checks">CHECKS</a>
                     </li>
 
                     <li class="ml-8 p-2">
-                        <a href="logout">LOGOUT</a>
+                        <a href="/logout">LOGOUT</a>
                     </li>
                 </ul>
             </div>

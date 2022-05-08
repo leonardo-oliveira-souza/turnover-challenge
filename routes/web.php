@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('checks')->group(function () {
         Route::get('/', [CheckController::class, 'index'])->name('checks.index');
-        Route::get('/search', [CheckController::class, 'search'])->name('checks.index');
+        Route::get('/search', [CheckController::class, 'search'])->name('checks.search');
+        Route::get('/create', [CheckController::class, 'create'])->name('checks.create');
+        Route::post('/', [CheckController::class, 'store'])->name('checks.store');
     });
 });
