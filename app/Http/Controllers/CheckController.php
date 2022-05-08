@@ -68,6 +68,9 @@ class CheckController extends Controller
         return Check::where('status', $status)
             ->where('created_at', '>=', $firstDay->format('Y-m-d H:i:s'))
             ->where('created_at', '<=', $lastDay->format('Y-m-d H:i:s'))
+            ->whereHas('account', function ($query) {
+                $query->where('user_id', auth()->id());
+            })
             ->get();
     }
 }

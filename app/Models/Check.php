@@ -13,4 +13,9 @@ class Check extends Model
         'status',
         'image_path',
     ];
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
 }
