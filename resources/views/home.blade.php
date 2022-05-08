@@ -2,7 +2,7 @@
 
 @section('content')
     @if (auth()->user()->admin)
-        You are logged in
+        <check-control></check-control>
     @else
         <balance></balance>
     @endif

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Enums\CheckStatus;
+use App\Enums\TransactionType;
 use App\Http\Requests\StoreCheckRequest;
 use App\Http\Resources\Check as CheckResource;
 use App\Models\Account;
 use App\Models\Check;
+use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -35,7 +37,7 @@ class CheckController extends Controller
             'description' => $request->description,
             'account_id' => $account->id,
             'status' => CheckStatus::PENDING->value,
-            'image_path' => $request->file('check')->store('checks'),
+            'image_path' => $request->file('check')->store('checks', 'public'),
         ];
 
         Check::create($data);
@@ -61,6 +63,63 @@ class CheckController extends Controller
             'pending' => CheckResource::collection($pendings),
             'rejected' => CheckResource::collection($rejecteds),
         ]);
+    }
+
+    public function allPending()
+    {
+        $checks = Check::where('status', CheckStatus::PENDING->value)->get();
+
+        return CheckResource::collection($checks);
+    }
+
+    public function show(Check $check)
+    {
+        $check->load('account.user');
+
+        return view('admin.checks-show', [
+            'checkId' => $check->id,
+        ]);
+    }
+
+    public function getCheck(Check $check)
+    {
+        $check->load('account.user');
+
+        return response()->json([
+            'check' => CheckResource::make($check),
+        ]);
+    }
+
+    public function accept(Check $check)
+    {
+        $check->update([
+            'status' => CheckStatus::ACCEPTED->value,
+        ]);
+
+        Transaction::create([
+            'account_id' => $check->account_id,
+            'description' => $check->description,
+            'type' => TransactionType::INCOMING->value,
+            'amount' => $check->amount,
+            'datetime' => $check->created_at,
+        ]);
+
+        $account = $check->account;
+        $newBalance = $account->balance + $check->amount;
+        $account->update([
+            'balance' => $newBalance,
+        ]);
+
+        return response()->noContent();
+    }
+
+    public function reject(Check $check)
+    {
+        $check->update([
+            'status' => CheckStatus::REJECTED->value,
+        ]);
+
+        return response()->noContent();
     }
 
     private function getChecksByPeriod(int $status, Carbon $firstDay, Carbon $lastDay)

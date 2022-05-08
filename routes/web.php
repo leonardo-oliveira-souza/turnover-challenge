@@ -55,3 +55,13 @@ Route::middleware(['auth', 'client.access'])->group(function () {
         Route::post('/', [CheckController::class, 'store'])->name('checks.store');
     });
 });
+
+Route::middleware(['auth', 'admin.access'])->group(function () {
+    Route::prefix('checks')->group(function () {
+        Route::get('/all-pending', [CheckController::class, 'allPending']);
+        Route::get('/{check}', [CheckController::class, 'show'])->name('checks.show');
+        Route::get('/{check}/api', [CheckController::class, 'getCheck']);
+        Route::put('/{check}/accept', [CheckController::class, 'accept']);
+        Route::put('/{check}/reject', [CheckController::class, 'reject']);
+    });
+});

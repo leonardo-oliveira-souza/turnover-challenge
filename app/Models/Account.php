@@ -14,4 +14,9 @@ class Account extends Model
     protected $attributes = [
         'balance' => 0,
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

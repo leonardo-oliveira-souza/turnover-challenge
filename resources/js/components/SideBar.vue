@@ -47,6 +47,10 @@
                         <a href="/checks">CHECKS</a>
                     </li>
 
+                    <li v-if="admin" class="ml-8 p-2">
+                        <a href="/">HOME</a>
+                    </li>
+
                     <li class="ml-8 p-2">
                         <a href="/logout">LOGOUT</a>
                     </li>

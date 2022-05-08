@@ -12,6 +12,9 @@ Vue.component('checks', require('./components/client/Checks.vue').default);
 Vue.component('transaction-list', require('./components/client/TransactionList.vue').default);
 Vue.component('check-list', require('./components/client/CheckList.vue').default);
 
+Vue.component('check-control', require('./components/admin/CheckControl.vue').default);
+Vue.component('check-detail', require('./components/admin/CheckDetail.vue').default);
+
 new Vue({
     el: '#app',
 });
