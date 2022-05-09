@@ -37,7 +37,7 @@ class CheckController extends Controller
             'description' => $request->description,
             'account_id' => $account->id,
             'status' => CheckStatus::PENDING->value,
-            'image_path' => $request->file('check')->store('checks', 'public'),
+            'encoded_image' => base64_encode(file_get_contents($request->file('check'))),
         ];
 
         Check::create($data);

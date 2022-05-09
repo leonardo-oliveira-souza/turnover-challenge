@@ -35,7 +35,7 @@
             </div>
             <div class="flex flex-wrap justify-center mt-3">
                 <div class="w-full md:w-1/2">
-                    <img class="w-full max-h-36" v-bind:src="check.image_url" alt="Check image">
+                    <img class="w-full max-h-36" v-bind:src="`data:image;base64,${check.encoded_image}`" alt="Check image">
                 </div>
             </div>
 

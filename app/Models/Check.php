@@ -11,7 +11,7 @@ class Check extends Model
         'description',
         'amount',
         'status',
-        'image_path',
+        'encoded_image',
     ];
 
     public function account()
