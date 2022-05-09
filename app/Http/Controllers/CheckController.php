@@ -104,12 +104,6 @@ class CheckController extends Controller
             'datetime' => $check->created_at,
         ]);
 
-        $account = $check->account;
-        $newBalance = $account->balance + $check->amount;
-        $account->update([
-            'balance' => $newBalance,
-        ]);
-
         return response()->noContent();
     }
 

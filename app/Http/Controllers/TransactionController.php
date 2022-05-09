@@ -40,9 +40,6 @@ class TransactionController extends Controller
 
         Transaction::create($data);
 
-        $newBalance = $account->balance - $data['amount'];
-        $account->update(['balance' => $newBalance]);
-
         return redirect()->route('expenses.index');
     }
 
