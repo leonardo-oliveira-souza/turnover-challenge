@@ -12,7 +12,7 @@
                     </span>
                 </td>
                 <td v-bind:class="transaction.type === 1 ? 'text-blue-400' : 'text-red-400'">
-                    {{ transaction.amount }}
+                    ${{ transaction.amount }}
                 </td>
             </tr>
         </tbody>

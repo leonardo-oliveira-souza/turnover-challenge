@@ -11,8 +11,8 @@
                         {{ check.datetime }}
                     </span>
                 </td>
-                <td v-bind:class="check.status === 1 ? 'text-blue-400' : 'text-red-400'">
-                    {{ check.amount }}
+                <td v-bind:class="getStatusColor(check.status)">
+                    ${{ check.amount }}
                 </td>
             </tr>
         </tbody>
@@ -25,6 +25,19 @@ export default {
         checks: {
             type: Array,
             default: () => [],
+        }
+    },
+
+    methods: {
+        getStatusColor (status) {
+            switch (status) {
+                case 1:
+                    return 'text-blue-400';
+                case 2:
+                    return 'text-red-400';
+                default:
+                    return 'text-gray-400';
+            }
         }
     }
 }
